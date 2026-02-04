@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Burlton</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Jordan Burlton</h1>
+    <p>Projects I’ve completed, experiments, and things I’m building</p>
+</header>
+
+<main class="projects">
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+        <div class="image-cycle">
+            <img src="images/s1.png" class="active" alt="Hearts screenshot 1">
+            <img src="images/s1.1.png" alt="Hearts screenshot 2">
+            <img src="images/s1.2.png" alt="Hearts screenshot 3">
+        </div>
+
+        <div class="project-info">
+            <h2>Hearts</h2>
+            <p>2D turn based card game simulator</p>
+        </div>
+    </a>
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+        <div class="image-cycle">
+            <img src="images/h1.png" class="active" alt="Horse screenshot 1">
+            <img src="images/h3.png" alt="horse cli">
+        </div>
+
+        <div class="project-info">
+            <h2>HorseRacing</h2>
+            <p>cli based horse racing</p>
+        </div>
+    </a>
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+        <div class="image-cycle">
+            <img src="images/b1.png" class="active" alt="Bitmapper">
+            <img src="images/b2.png" alt="bitmap">
+        </div>
+
+        <div class="project-info">
+            <h2>Bitmapper!</h2>
+            <p>cli based map drawing program</p>
+        </div>
+    </a>
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+        <div class="image-cycle">
+            <img src="images/c1.png" class="active" alt="Colour overload">
+            <img src="images/c2.png" alt="screenshot">
+            <img src="images/c3.png" alt="screenshot">
+            <img src="images/c4.png" alt="screenshot">
+
+        </div>
+
+        <div class="project-info">
+            <h2>ColourOverloader</h2>
+            <p>cli based colour program</p>
+        </div>
+    </a>
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+        <div class="image-cycle">
+            <img src="images/p1.png" class="active" alt="SimpleProfiler">
+            <img src="images/p2.png" alt="screenshot">
+            <img src="images/p3.png" alt="screenshot">
+            <img src="images/p4.png" alt="screenshot">
+            <img src="images/p5.png" alt="screenshot">
+
+
+        </div>
+
+        <div class="project-info">
+            <h2>Simple player profiler</h2>
+                <p>SWING(java) based player profiler</p>
+        </div>
+    </a>
+
+
+
+
+    <a class="project-card" href="#" target="_blank" rel="noopener">
+        <img src="images/s3.png" alt="OSRS game server screenshot">
+        <div class="project-info">
+            <h2>OSRS blended Game Server</h2>
+            <p>OSRS game server, client, and cache</p>
+        </div>
+    </a>
+</main>
+
+
+<footer>
+    <p>© 2026 Jordan Burlton</p>
+</footer>
+<script>
+    document.querySelectorAll('.project-card').forEach(card => {
+        const images = card.querySelectorAll('.image-cycle img');
+        if (images.length <= 1) return;
+
+        let index = 0;
+        let timer;
+
+        card.addEventListener('mouseenter', () => {
+            timer = setInterval(() => {
+                images[index].classList.remove('active');
+                index = (index + 1) % images.length;
+                images[index].classList.add('active');
+            }, 1200);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            clearInterval(timer);
+            images[index].classList.remove('active');
+            index = 0;
+            images[0].classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
